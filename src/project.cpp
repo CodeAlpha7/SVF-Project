@@ -23,22 +23,6 @@ private:
     ICFG* icfg;
     map<const ICFGNode*, bool> visited;
     vector<const ICFGNode*> currentPath;
-<<<<<<< HEAD
-    map<const ICFGNode*, set<const ICFGNode*>> cycleNodes;
-
-    bool detectCycle(const ICFGNode* node) {
-        auto it = find(currentPath.begin(), currentPath.end(), node);
-        if (it != currentPath.end()) {
-            // Found a cycle
-            set<const ICFGNode*> cycle;
-            for (auto iter = it; iter != currentPath.end(); ++iter) {
-                cycle.insert(*iter);
-            }
-            cycleNodes[*it] = cycle;
-            return true;
-        }
-        return false;
-=======
     vector<vector<const ICFGNode*>> cycles;
 
     // New: Track which nodes are entry points for cycles
@@ -60,45 +44,10 @@ private:
             
             cout << "Found cycle starting at " << (*it)->getId() << endl;
         }
->>>>>>> Complete codebase
     }
 
     string formatPath(const vector<const ICFGNode*>& path) {
         string result;
-<<<<<<< HEAD
-        bool inCycle = false;
-        const ICFGNode* cycleStart = nullptr;
-
-        for (size_t i = 0; i < path.size(); i++) {
-            const ICFGNode* node = path[i];
-
-            // Check if this node starts a cycle
-            if (!inCycle && cycleNodes.find(node) != cycleNodes.end()) {
-                inCycle = true;
-                cycleStart = node;
-                result += "Cycle[";
-                const auto& cycleSet = cycleNodes[node];
-                bool first = true;
-                for (const auto& cycleNode : cycleSet) {
-                    if (!first) result += " -> ";
-                    result += to_string(cycleNode->getId());
-                    first = false;
-                }
-                result += "]";
-            } 
-            // If not in cycle or at cycle end, print normally
-            else if (!inCycle) {
-                if (!result.empty() && result.back() != ']') 
-                    result += " -> ";
-                result += to_string(node->getId());
-            }
-
-            // Check if we're at cycle end
-            if (inCycle && node == cycleStart) {
-                inCycle = false;
-            }
-        }
-=======
         size_t i = 0;
         
         while (i < path.size()) {
@@ -134,7 +83,6 @@ private:
             i++;
         }
         
->>>>>>> Complete codebase
         return result;
     }
 
@@ -143,10 +91,7 @@ private:
                    vector<vector<const ICFGNode*>>& allPaths) {
         
         if (current == target) {
-<<<<<<< HEAD
-=======
             // When we find target, make a complete copy including cycle info
->>>>>>> Complete codebase
             allPaths.push_back(path);
             return;
         }
@@ -154,22 +99,6 @@ private:
         visited[current] = true;
         currentPath.push_back(current);
 
-<<<<<<< HEAD
-        // Get all outgoing edges
-        for (const ICFGEdge* edge : current->getOutEdges()) {
-            const ICFGNode* succ = edge->getDstNode();
-            
-            if (!visited[succ] || succ == target) {
-                detectCycle(succ);
-                path.push_back(succ);
-                findPaths(succ, target, path, allPaths);
-                path.pop_back();
-            }
-        }
-
-        visited[current] = false;
-        currentPath.pop_back();
-=======
         for (const ICFGEdge* edge : current->getOutEdges()) {
             const ICFGNode* succ = edge->getDstNode();
             
@@ -191,7 +120,6 @@ private:
 
         currentPath.pop_back();
         visited[current] = false;
->>>>>>> Complete codebase
     }
 
 public:
