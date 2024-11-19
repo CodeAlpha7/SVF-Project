@@ -1,0 +1,42 @@
+digraph "ICFG" {
+	label="ICFG";
+
+	Node0x561a0dd028a0 [shape=record,color=purple,label="{GlobalICFGNode0\nCopyStmt: [Var1 \<-- Var0]  \n i8* null \{ constant data \}\nAddrStmt: [Var6 \<-- Var3]  \n i32 0 \{ constant data \}\nAddrStmt: [Var36 \<-- Var3]  \n @.str = private unnamed_addr constant [3 x i8] c\":)\\00\", align 1 \{ Glob  \}\nAddrStmt: [Var21 \<-- Var3]  \n @.str.8 = private unnamed_addr constant [10 x i8] c\"OVERWRITE\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var19 \<-- Var3]  \n @.str.7 = private unnamed_addr constant [7 x i8] c\"MEMSET\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var11 \<-- Var3]  \n @.str.3 = private unnamed_addr constant [11 x i8] c\"ALLOC_ARG0\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var13 \<-- Var3]  \n @.str.4 = private unnamed_addr constant [11 x i8] c\"ALLOC_ARG1\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var15 \<-- Var3]  \n @.str.5 = private unnamed_addr constant [11 x i8] c\"ALLOC_ARG2\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var17 \<-- Var3]  \n @.str.6 = private unnamed_addr constant [7 x i8] c\"MEMCPY\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var7 \<-- Var3]  \n @.str.1 = private unnamed_addr constant [48 x i8] c\"/home/runner/work/SVF/SVF/svf-llvm/lib/extapi.c\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var9 \<-- Var3]  \n @.str.2 = private unnamed_addr constant [12 x i8] c\"REALLOC_RET\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var4 \<-- Var3]  \n @.str = private unnamed_addr constant [10 x i8] c\"ALLOC_RET\\00\", section \"llvm.metadata\" \{ Glob  \}\nAddrStmt: [Var38 \<-- Var3]  \n i64 0 \{ constant data \}\nAddrStmt: [Var33 \<-- Var3]  \n i32 1 \{ constant data \}\nAddrStmt: [Var26 \<-- Var3]  \n i32 18 \{ constant data \}\nAddrStmt: [Var23 \<-- Var27]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nCopyStmt: [Var24 \<-- Var25]  \n i8* bitcast (i8* (i64)* @malloc to i8*) \{ N/A \}\nGepStmt: [Var59 \<-- Var23]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nStoreStmt: [Var59 \<-- Var24]  \n i8* bitcast (i8* (i64)* @malloc to i8*) \{ N/A \}\nGepStmt: [Var5 \<-- Var4]  \n i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0) \{ N/A \}\nGepStmt: [Var60 \<-- Var23]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nStoreStmt: [Var60 \<-- Var5]  \n i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0) \{ N/A \}\nGepStmt: [Var8 \<-- Var7]  \n i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0) \{ N/A \}\nGepStmt: [Var61 \<-- Var23]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nStoreStmt: [Var61 \<-- Var8]  \n i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0) \{ N/A \}\nGepStmt: [Var62 \<-- Var23]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nStoreStmt: [Var62 \<-- Var26]  \n i32 18 \{ constant data \}\nGepStmt: [Var63 \<-- Var23]  \n @llvm.global.annotations = appending global [1 x \{ i8*, i8*, i8*, i32, i8* \}] [\{ i8*, i8*, i8*, i32, i8* \} \{ i8* bitcast (i8* (i64)* @malloc to i8*), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([48 x i8], [48 x i8]* @.str.1, i32 0, i32 0), i32 18, i8* null \}], section \"llvm.metadata\" \{ Glob  \}\nStoreStmt: [Var63 \<-- Var0]  \n i8* null \{ constant data \}\nAddrStmt: [Var25 \<-- Var28]  \nFunction: malloc \nAddrStmt: [Var39 \<-- Var40]  \nFunction: sink \nAddrStmt: [Var44 \<-- Var45]  \nFunction: puts \nAddrStmt: [Var49 \<-- Var50]  \nFunction: src \nAddrStmt: [Var54 \<-- Var55]  \nFunction: main }"];
+	Node0x561a0dd028a0 -> Node0x561a0dcf43c0[style=solid];
+	Node0x561a0dd299b0 [shape=record,color=yellow,label="{FunEntryICFGNode1 \{fun: sink\}}"];
+	Node0x561a0dd299b0 -> Node0x561a0dd5b6d0[style=solid];
+	Node0x561a0dd5b6d0 [shape=record,color=black,label="{IntraICFGNode2 \{fun: sink\}\nGepStmt: [Var42 \<-- Var36]  \n   %1 = getelementptr inbounds [3 x i8], [3 x i8]* @.str, i64 0, i64 0 }"];
+	Node0x561a0dd5b6d0 -> Node0x561a0dcf91e0[style=solid];
+	Node0x561a0dcf91e0 [shape=record,color=red,label="{CallICFGNode3 \{fun: sink\}}"];
+	Node0x561a0dcf91e0 -> Node0x561a0dd1de40[style=solid];
+	Node0x561a0dd1de40 [shape=record,color=blue,label="{RetICFGNode4 \{fun: sink\}}"];
+	Node0x561a0dd1de40 -> Node0x561a0dd57db0[style=solid];
+	Node0x561a0dd57db0 [shape=record,color=black,label="{IntraICFGNode5 \{fun: sink\}\n   ret void }"];
+	Node0x561a0dd57db0 -> Node0x561a0dd58970[style=solid];
+	Node0x561a0dd58970 [shape=record,color=green,label="{FunExitICFGNode6 \{fun: sink\}|{<s0>0x561a0dd11450}}"];
+	Node0x561a0dd58970:s0 -> Node0x561a0dcf81c0[style=solid,color=blue];
+	Node0x561a0dcf87c0 [shape=record,color=yellow,label="{FunEntryICFGNode7 \{fun: src\}}"];
+	Node0x561a0dcf87c0 -> Node0x561a0dcf3480[style=solid];
+	Node0x561a0dcf3480 [shape=record,color=red,label="{CallICFGNode8 \{fun: src\}|{<s0>0x561a0dd11450}}"];
+	Node0x561a0dcf3480:s0 -> Node0x561a0dd299b0[style=solid,color=red];
+	Node0x561a0dcf81c0 [shape=record,color=blue,label="{RetICFGNode9 \{fun: src\}}"];
+	Node0x561a0dcf81c0 -> Node0x561a0dd5d870[style=solid];
+	Node0x561a0dd5d870 [shape=record,color=black,label="{IntraICFGNode10 \{fun: src\}\n   ret void }"];
+	Node0x561a0dd5d870 -> Node0x561a0dd5ec90[style=solid];
+	Node0x561a0dd5ec90 [shape=record,color=green,label="{FunExitICFGNode11 \{fun: src\}|{<s0>0x561a0dcf9020}}"];
+	Node0x561a0dd5ec90:s0 -> Node0x561a0dcec5e0[style=solid,color=blue];
+	Node0x561a0dcf43c0 [shape=record,color=yellow,label="{FunEntryICFGNode12 \{fun: main\}}"];
+	Node0x561a0dcf43c0 -> Node0x561a0dd609c0[style=solid];
+	Node0x561a0dd609c0 [shape=record,color=red,label="{CallICFGNode13 \{fun: main\}|{<s0>0x561a0dcf9020}}"];
+	Node0x561a0dd609c0:s0 -> Node0x561a0dcf87c0[style=solid,color=red];
+	Node0x561a0dcec5e0 [shape=record,color=blue,label="{RetICFGNode14 \{fun: main\}}"];
+	Node0x561a0dcec5e0 -> Node0x561a0dd61280[style=solid];
+	Node0x561a0dd61280 [shape=record,color=black,label="{IntraICFGNode15 \{fun: main\}\n   ret i32 0 }"];
+	Node0x561a0dd61280 -> Node0x561a0dd621b0[style=solid];
+	Node0x561a0dd621b0 [shape=record,color=green,label="{FunExitICFGNode16 \{fun: main\}\nPhiStmt: [Var56 \<-- ([Var6, ICFGNode15],)]  \n   ret i32 0 }"];
+	Node0x561a0dd06f40 [shape=record,color=green,label="{FunExitICFGNode17 \{fun: malloc\}\nPhiStmt: [Var29 \<-- ([Var0, ICFGNode21],)]  \n   ret i8* null }"];
+	Node0x561a0dce63b0 [shape=record,color=yellow,label="{FunEntryICFGNode18 \{fun: malloc\}}"];
+	Node0x561a0dd0b6b0 [shape=record,color=black,label="{IntraICFGNode19 \{fun: malloc\}\nAddrStmt: [Var31 \<-- Var32]  \n   %size.addr = alloca i64, align 8 }"];
+	Node0x561a0dd0b210 [shape=record,color=black,label="{IntraICFGNode20 \{fun: malloc\}\nStoreStmt: [Var31 \<-- Var30]  \n   store i64 %size, i64* %size.addr, align 8 }"];
+	Node0x561a0dd0adf0 [shape=record,color=black,label="{IntraICFGNode21 \{fun: malloc\}\n   ret i8* null }"];
+}
