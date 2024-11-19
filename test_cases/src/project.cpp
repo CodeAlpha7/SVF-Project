@@ -1,3 +1,24 @@
+//
+//                     SVF: Static Value-Flow Analysis
+//
+// Copyright (C) <2013->  <Yulei Sui>
+//
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+//===-----------------------------------------------------------------------===//
+
 #include "SVF-LLVM/LLVMUtil.h"
 #include "SVF-LLVM/ICFGBuilder.h"
 #include "SVF-LLVM/SVFIRBuilder.h"
@@ -23,7 +44,6 @@ private:
     ICFG* icfg;
     map<const ICFGNode*, bool> visited;
     vector<const ICFGNode*> currentPath;
-<<<<<<< HEAD
     map<const ICFGNode*, set<const ICFGNode*>> cycleNodes;
 
     bool detectCycle(const ICFGNode* node) {
@@ -38,34 +58,10 @@ private:
             return true;
         }
         return false;
-=======
-    vector<vector<const ICFGNode*>> cycles;
-
-    // New: Track which nodes are entry points for cycles
-    map<const ICFGNode*, vector<const ICFGNode*>> cycleEntries;
-
-    void detectCycle(const ICFGNode* node) {
-        auto it = find(currentPath.begin(), currentPath.end(), node);
-        if (it != currentPath.end()) {
-            vector<const ICFGNode*> cycleNodes;
-            
-            // Record cycle nodes
-            for (auto iter = it; iter != currentPath.end(); ++iter) {
-                cycleNodes.push_back(*iter);
-            }
-            cycleNodes.push_back(node);  // Complete the cycle
-            
-            cycles.push_back(cycleNodes);
-            cycleEntries[*it] = cycleNodes;  // Store with cycle entry point
-            
-            cout << "Found cycle starting at " << (*it)->getId() << endl;
-        }
->>>>>>> Complete codebase
     }
 
     string formatPath(const vector<const ICFGNode*>& path) {
         string result;
-<<<<<<< HEAD
         bool inCycle = false;
         const ICFGNode* cycleStart = nullptr;
 
@@ -98,43 +94,6 @@ private:
                 inCycle = false;
             }
         }
-=======
-        size_t i = 0;
-        
-        while (i < path.size()) {
-            const ICFGNode* node = path[i];
-            
-            // Check if this node is a cycle entry point
-            auto cycleIt = cycleEntries.find(node);
-            if (cycleIt != cycleEntries.end()) {
-                // We found a cycle starting at this node
-                if (!result.empty()) result += "->";
-                
-                // Format the cycle
-                result += "Cycle[";
-                const auto& cycleNodes = cycleIt->second;
-                
-                for (size_t j = 0; j < cycleNodes.size(); j++) {
-                    result += to_string(cycleNodes[j]->getId());
-                    if (j < cycleNodes.size() - 1) result += "->";
-                }
-                result += "]";
-                
-                // Skip nodes that are part of this cycle in the main path
-                while (i < path.size() && 
-                       find(cycleNodes.begin(), cycleNodes.end(), path[i]) != cycleNodes.end()) {
-                    i++;
-                }
-                i--; // Adjust for loop increment
-            } else {
-                if (!result.empty()) result += "->";
-                result += to_string(node->getId());
-            }
-            
-            i++;
-        }
-        
->>>>>>> Complete codebase
         return result;
     }
 
@@ -143,10 +102,6 @@ private:
                    vector<vector<const ICFGNode*>>& allPaths) {
         
         if (current == target) {
-<<<<<<< HEAD
-=======
-            // When we find target, make a complete copy including cycle info
->>>>>>> Complete codebase
             allPaths.push_back(path);
             return;
         }
@@ -154,7 +109,6 @@ private:
         visited[current] = true;
         currentPath.push_back(current);
 
-<<<<<<< HEAD
         // Get all outgoing edges
         for (const ICFGEdge* edge : current->getOutEdges()) {
             const ICFGNode* succ = edge->getDstNode();
@@ -169,29 +123,6 @@ private:
 
         visited[current] = false;
         currentPath.pop_back();
-=======
-        for (const ICFGEdge* edge : current->getOutEdges()) {
-            const ICFGNode* succ = edge->getDstNode();
-            
-            // Allow revisiting nodes that could be part of cycles
-            if (!visited[succ] || succ == target || 
-                find(currentPath.begin(), currentPath.end(), succ) != currentPath.end()) {
-                
-                // Check for cycle before processing
-                detectCycle(succ);
-                
-                // Only proceed with unvisited or target nodes
-                if (!visited[succ] || succ == target) {
-                    path.push_back(succ);
-                    findPaths(succ, target, path, allPaths);
-                    path.pop_back();
-                }
-            }
-        }
-
-        currentPath.pop_back();
-        visited[current] = false;
->>>>>>> Complete codebase
     }
 
 public:
@@ -203,20 +134,10 @@ public:
             return;
         }
 
-<<<<<<< HEAD
         vector<const ICFGNode*> path;
         vector<vector<const ICFGNode*>> allPaths;
         path.push_back(start);
-        visited.clear();
-        currentPath.clear();
-        cycles.clear();
-        cycleEntries.clear();
         
-        vector<const ICFGNode*> path;
-        vector<vector<const ICFGNode*>> allPaths;
-        
-        path.push_back(start);
->>>>>>> Complete codebase
         findPaths(start, end, path, allPaths);
 
         if (allPaths.empty()) {

@@ -1,0 +1,17 @@
+digraph G {
+
+  node [shape = rectangle];
+  main->src
+  src->initheader[label="true"]
+  initheader->init
+  src->footer[label="false"]
+  init->footer
+  footer->sink
+  
+  initheader[label="init()"]
+  footer[label = "sink()"]
+  main[label="main\nx = 0\nsrc()\n"]
+  src[color="green",label="src\nbr [x != 3?]"]
+  init[label="init\nx = 3"]
+  sink[color="red",label="sink\n"]
+}

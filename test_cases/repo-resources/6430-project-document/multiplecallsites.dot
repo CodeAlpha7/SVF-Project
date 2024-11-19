@@ -1,0 +1,13 @@
+digraph G {
+
+  node [shape = rectangle];
+  main->src
+  main->sink
+  f->src
+  f->sink 
+  
+  main[label="main\nsrc()\nsink()"]
+  src[color="green",label="src"]
+  f[label="f\nsink()\nsrc()"]
+  sink[color="red",label="sink"]
+}
