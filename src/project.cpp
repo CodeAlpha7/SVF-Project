@@ -3,7 +3,6 @@
 #include "SVF-LLVM/SVFIRBuilder.h"
 #include "Util/CommandLine.h"
 #include "Util/Options.h"
-#include "Graphs/ICFG.h"
 
 #include <iostream>
 #include <vector>
@@ -42,7 +41,7 @@ private:
             cycles.push_back(cycleNodes);
             cycleEntries[*it] = cycleNodes;  // Store with cycle entry point
             
-            cout << "Found cycle starting at " << (*it)->getId() << endl;
+            // cout << "Found cycle starting at " << (*it)->getId() << endl;
         }
     }
 
@@ -131,10 +130,6 @@ public:
             return;
         }
 
-<<<<<<< HEAD
-        vector<const ICFGNode*> path;
-        vector<vector<const ICFGNode*>> allPaths;
-        path.push_back(start);
         visited.clear();
         currentPath.clear();
         cycles.clear();
@@ -144,7 +139,6 @@ public:
         vector<vector<const ICFGNode*>> allPaths;
         
         path.push_back(start);
->>>>>>> Complete codebase
         findPaths(start, end, path, allPaths);
 
         if (allPaths.empty()) {
